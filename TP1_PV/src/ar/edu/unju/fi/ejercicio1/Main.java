@@ -1,6 +1,6 @@
-package ar.edu.unju.fi;
+package ar.edu.unju.fi.ejercicio1;
 
-public class Ejercicio_1 {
+public class Main {
 
 	public static void main(String[] args) {
 		float num1, num2 , num3, num4 ,num5;
