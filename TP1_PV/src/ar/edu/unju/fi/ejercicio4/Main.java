@@ -8,8 +8,8 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Ingrese un numero entre 0 y 10");
 		Integer num = scanner.nextInt();
-		int fact = 1;
 		
+		int fact = 1;
 		if(num >= 0 && num <= 10) {
 			while(num > 0) {
 				System.out.println(num);
