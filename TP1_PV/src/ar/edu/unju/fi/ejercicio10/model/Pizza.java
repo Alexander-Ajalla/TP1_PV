@@ -22,8 +22,9 @@ public class Pizza {
 	}
 
 	public void mostrarDatos () {
-		System.out.println("Pizza [diametro=" + diametro + ", precio=$" + calcularPrecio() + ", area=" + calcularArea() + ", ingredientesEspeciales="
-				+ ingredientesEspeciales + "]");
+		System.out.println("-----Datos de la pizza-----");
+		System.out.println("\nDiametro = " + diametro + "\nPrecio = $" + calcularPrecio() + "\nArea = " + calcularArea() + "\nIngredientes Especiales = "
+				+ ingredientesEspeciales);
 	}
 	
 	public double calcularArea () {
