@@ -2,8 +2,7 @@ package ar.edu.unju.fi.ejercicio12.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import javax.swing.text.SimpleAttributeSet;
+import java.util.Date;
 
 public class Persona {
 	private String nombre;
@@ -16,7 +15,7 @@ public class Persona {
 		this.nombre = nombre;
 		this.fechaDeNacimiento = fechaDeNacimiento;
 	}
-
+	
 	public int calcularEdad () {
 		 Calendar fechaActual = Calendar.getInstance();
 		 int edad = fechaActual.get(Calendar.YEAR) - this.getFechaDeNacimiento().get(Calendar.YEAR);
@@ -30,27 +29,26 @@ public class Persona {
 	
 	public String calcularEstacion (int month) {
 		 switch (month) {
-        	case Calendar.DECEMBER:
-        	case Calendar.JANUARY:
-        	case Calendar.FEBRUARY:
-        		return "Verano";
-        	case Calendar.MARCH:
-        	case Calendar.APRIL:
-        	case Calendar.MAY:
-        		return "Otoño";
-        	case Calendar.JUNE:
-        	case Calendar.JULY:
-        	case Calendar.AUGUST:
-        		return "Invierno";
-        	case Calendar.SEPTEMBER:
-        	case Calendar.OCTOBER:
-        	case Calendar.NOVEMBER:
-        		return "Primavera";
-        	default:
-        		return "Estación no válida";
+       	case Calendar.DECEMBER:
+       	case Calendar.JANUARY:
+       	case Calendar.FEBRUARY:
+       		return "Verano";
+       	case Calendar.MARCH:
+       	case Calendar.APRIL:
+       	case Calendar.MAY:
+       		return "Otoño";
+       	case Calendar.JUNE:
+       	case Calendar.JULY:
+       	case Calendar.AUGUST:
+       		return "Invierno";
+       	case Calendar.SEPTEMBER:
+       	case Calendar.OCTOBER:
+       	case Calendar.NOVEMBER:
+       		return "Primavera";
+       	default:
+       		return "Estación no válida";
 		}
 	}
-	
 	public String calcularSignoZodiacal (int month, int day) {
 		switch (month) {
 		case 0: {
@@ -89,22 +87,27 @@ public class Persona {
 		case 11: {
 			return day >= 20 ? "Capricornio": "Sagitario";
 			}
-		default: {return "No válido";}	
+		default: {
+			return "No válido";
+			}	
 		}
 	}
 	
 	public void mostrarDatos () {
-		SimpleDateFormat formato = new SimpleAttributeSet("dd/MM/yyyy");
+		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 		int month = this.getFechaDeNacimiento().get(Calendar.MONTH);
 		System.out.println("----------: " + month);
 		int day = this.getFechaDeNacimiento().get(Calendar.DAY_OF_MONTH);
+		Date tiempo = this.getFechaDeNacimiento().getTime();
 		
+		//System.out.println("wea"+this.getFechaDeNacimiento().getTime());
 		String fechaNacimientoStr = formato.format(this.getFechaDeNacimiento().getTime());
-		System.out.println("Nombre: " + this.getNombre() + "\n" + "Fecha de Nacimiento: "+ fechaNacimientoStr 
-		+  "\n" + "Edad: " + calcularEdad() + " años" + "\n" + "Signo del zodiaco: " + calcularSignoZodiacal(month,day) + "\n" 
-		+ "Estación: " + calcularEstacion(month));
+		//String fechaFormateada = String.format("%02d/%02d/%04d %02d:%02d:%02d", this.getFechaDeNacimiento().get(Calendar.DAY_OF_MONTH),this.getFechaDeNacimiento().get(Calendar.MONTH),this.getFechaDeNacimiento().get(Calendar.YEAR));
+		System.out.println("Nombre: " + this.getNombre() + "\n" + "Fecha de Nacimiento: "+ this.getFechaDeNacimiento().getTime() 
+				+  "\n" + "Edad: " + calcularEdad() + " años" + "\n" + "Signo del zodiaco: " + calcularSignoZodiacal(month,day) + "\n" 
+				+ "Estación: " + calcularEstacion(month));
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}

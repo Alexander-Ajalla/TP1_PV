@@ -9,12 +9,12 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Ingrese los datos para la persona: ");
+		System.out.println("Ingrese los datos de la persona: ");
 		
 		System.out.print("Nombre: ");
         String nombre = scanner.nextLine();
         
-        System.out.print("Ingrese su fecha de nacimiento (formato dd/mm/yyyy): ");
+        System.out.print("Fecha de nacimiento (formato dd/mm/yyyy): ");
         String fechaNacimientoStr = scanner.nextLine();
         
         String[] fechaParts = fechaNacimientoStr.split("/");
